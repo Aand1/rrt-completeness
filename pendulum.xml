@@ -1,0 +1,51 @@
+<Robot name="Pendulum">
+    <RotationAxis>0 1 0 90</RotationAxis>
+    <KinBody>
+        <Mass type="mimicgeom">
+            <density>100000</density>
+        </Mass>
+
+        <!-- Create the base body. It should never move. -->
+        <!-- Note that all translations and rotations are with respect to
+             this base. For example, the robot at the identity
+             transformation is equivalent to the identity transformation of
+             the first body.-->
+        <Body name="Base" type="dynamic">
+            <Translation>0.0  0.0  0.0</Translation>
+            <Geom type="cylinder">
+                <rotationaxis>1 0 0 90</rotationaxis>
+                <radius>0.03</radius>
+                <height>0.02</height>
+                <ambientColor>1. 0. 0.</ambientColor>
+                <diffuseColor>1. 0. 0.</diffuseColor>
+            </Geom>
+        </Body>
+
+        <!-- First link -->
+        <Body name="Arm0" type="dynamic">
+            <!-- Offset from is a fast way of specifying that the
+                 translation and rotation of this body should be relative
+                 to another link -->
+            <offsetfrom>Base</offsetfrom>
+            <!-- Translation relative to Base-->
+            <Translation>0 0 0</Translation>
+            <Geom type="box">
+                <Translation>0.1 0 0</Translation>
+                <Extents>0.1 0.01 0.01</Extents>
+                <ambientColor>1. 0. 0.</ambientColor>
+                <diffuseColor>1. 0. 0.</diffuseColor>
+            </Geom> 
+        </Body>
+
+        <!-- Circular hinge joint (circular joints have no limits) -->
+        <Joint circular="true" name="Arm0" type="hinge">
+            <Body>Base</Body>
+            <Body>Arm0</Body>
+            <offsetfrom>Arm0</offsetfrom>
+            <weight>4</weight>
+            <axis>0 0 1</axis>
+            <maxvel>3.42</maxvel>
+            <resolution>1</resolution>
+        </Joint>
+    </KinBody>
+</Robot>
