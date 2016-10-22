@@ -15,7 +15,7 @@ from trajectory import Trajectory
 
 dof_limits = [-pi], [pi]
 goal_state = [pi, 0.]
-torque_limits = [10.]
+torque_limits = [5.]
 velocity_limits = [10.]
 
 bezier_rrt = None
@@ -70,7 +70,8 @@ def log_computation_time(dt):
 
 
 def save_run(new_run, fname):
-    with open('benchmark/%s.pkl' % fname, 'w') as f:
+    tau_max = int(torque_limits[0])
+    with open('benchmark/tau%d-%s.pkl' % (tau_max, fname), 'w') as f:
         fcntl.flock(f, fcntl.LOCK_EX | fcntl.LOCK_NB)
         # file is unlocked automatically at end of with statement
         pickle.dump(new_run, f)
@@ -85,7 +86,6 @@ if __name__ == "__main__":
     env.Load('pendulum.xml')
     rave_robot = env.GetRobot("Pendulum")
     # env.SetViewer('qtcoin')
-    # raw_input()
     pendulum = Robot(rave_robot, dof_limits, velocity_limits, torque_limits)
     init_state = 0.5 * pendulum.sample_state()  # dof limits: [-pi/2, +pi/2]
     t0 = time.time()

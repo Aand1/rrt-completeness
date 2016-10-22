@@ -1,6 +1,6 @@
 # Completeness of Randomized Kinodynamic Planners with State-based Steering
 
-Source code for the paper https://arxiv.org/pdf/1511.05259
+Source code for the paper https://arxiv.org/pdf/1511.05259.pdf
 
 ## Abstract
 

@@ -1,5 +1,9 @@
 #!/usr/bin/env python
 
+"""
+Script used to generate the benchmark figures reported in the paper.
+"""
+
 import bisect
 import IPython
 import glob
