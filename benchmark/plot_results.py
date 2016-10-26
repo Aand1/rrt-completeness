@@ -64,8 +64,7 @@ for fname in glob.glob('*.pkl'):
             c = 'g' if 'Bezier' in label else 'r'
             pylab.plot([xvals[-1], xvals[-1]], [0., ymax], '%c-' % c, lw=2)
             pylab.plot([xvals[-1]], [0.], '%co' % c, ms=10)
-        if 'SOC' in label:
-            print fname, xvals[-1], float(yvals[-1])
+        print fname, "\t", label, "\t", xvals[-1], float(yvals[-1])
 
 
 def combine_curves(xvals, curves, fun):
