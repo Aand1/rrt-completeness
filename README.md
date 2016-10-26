@@ -26,8 +26,11 @@ Authors:
 [Quang-Cuong Pham](https://www.normalesup.org/~pham/) and
 [Yoshihiko Nakamura](http://www.ynl.t.u-tokyo.ac.jp/)
 
-## Results
+## Benchmark results
 
-The benchmark run in the paper considered four torque limits, ranging from 5 to
-8 Nm, with 20 runs for each setting. Results are summarized by the following
-plots, with RRT-Bezier in green and RRT-SOC in red (see the paper for details).
+The benchmark run in the paper considered four settings, one for each integer 
+torque limit from 5 to 8 Nm, with 20 runs for each setting. Results are 
+summarized by the following plots, with RRT-Bezier in green and RRT-SOC in red
+(see the paper for details).
+
+![Plots](results.png)
